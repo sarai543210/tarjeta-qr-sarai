@@ -9,7 +9,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <script src="https://cdn.jsdelivr.net/npm/qrcode.js@0.0.2/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
     <div class="card-container">
@@ -23,7 +23,7 @@
         
         <div class="profile-section">
             <div class="profile-photo-wrapper">
-                <img src="perfil.jpeg" alt="Foto de perfil de Vanessa Hurtado" class="profile-photo">
+                <img src="perfil.jpeg" alt="Foto de perfil de Sarai Mamani" class="profile-photo">
             </div>
         </div>
 
@@ -33,7 +33,7 @@
             <p class="company">Empresa de Transportes Ocaña</p>
 
             <div class="contact-buttons-outside">
-                <a href="https://wa.me/59175825034" class="icon-button whatsapp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://wa.me/59175825034" class="icon-button whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 <a href="mailto:ventas@transportesocana.com" class="icon-button email"><i class="fas fa-envelope"></i></a>
                 <a href="https://maps.app.goo.gl/TUqD7XzG5zV8V4gT7" target="_blank" class="icon-button location"><i class="fas fa-map-marker-alt"></i></a>
             </div>
@@ -41,8 +41,6 @@
 
         <div class="content-sections-wrapper">
             
-            
-
             <div class="content-block contact-details">
                 <div class="block-header">
                     <i class="fas fa-mobile-alt"></i>
@@ -59,16 +57,14 @@
                 <p class="detail-address">La Paz - Bolivia<br>Avenida 16 de Julio Nº 1479 (El Prado) Edificio San Pablo, Piso 12, Oficina 1203</p>
             </div>
             
-
             <div class="content-block company-banner">
                 <img src="camion portada.jpg" alt="Camión grande de Transportes Ocaña">
             </div>
-           
+            
             <div class="content-block description">
                 <h3 class="red-text">TRANSPORTES OCAÑA</h3>
                 <p>Somos una empresa que se especializa en el servicio de Transporte de Carga a nivel Nacional e Internacional, que durante más de 25 años se encuentra al servicio de empresas exportadoras, importadoras y público en general. ¡Confíe su carga a expertos!</p>
             </div>
-
 
             <div class="content-block social-media">
                 <h3 class="red-text">Nuestras Redes Sociales</h3>
@@ -85,17 +81,26 @@
                 </a>
             </div>
 
+            <div class="content-block qr-code-section">
+                <h3 class="red-text">Compartir con Código QR</h3>
+                <p class="social-text" style="margin-bottom: 15px;">Escanea para guardar mi tarjeta de contacto.</p>
+                <div id="qrcode-container"></div>
+            </div>
             
+        </div> <div class="fixed-buttons-wrapper">
+            <a href="javascript:void(0);" onclick="downloadVCard()" class="fixed-button add-contact">
+                <i class="fas fa-user-plus"></i> AÑADIR A CONTACTOS
+            </a>
+            <a href="tel:+59175825034" class="fixed-button call-now">
+                <i class="fas fa-phone"></i> LLAMAR AHORA
+            </a>
         </div>
-       
-    </div>
+        
+    </div> <script>
+        // 1. DEFINE LA URL DE TU TARJETA DIGITAL (¡CORREGIDA CON TU URL DE GITHUB!)
+        const qrData = "https://sarai543210.github.io/tarjeta-qr-sarai/";
 
-    <script>
-        // 1. DEFINE LA URL DE TU TARJETA DIGITAL AQUÍ
-        // *** REEMPLAZA ESTA URL CON LA DIRECCIÓN REAL DE TU ARCHIVO ***
-        const qrData = "https://www.transportesocana.com/tarjeta/sarai.html"; 
-
-        // Datos de la V-Card (se mantienen SÓLO para el botón "Añadir a Contactos")
+        // Datos de la V-Card (Para el botón "Añadir a Contactos")
         const vcardData = `BEGIN:VCARD
 VERSION:3.0
 N:Mamani;Sarai;;;
@@ -105,15 +110,14 @@ TITLE:Área de Ventas
 TEL;TYPE=CELL:+59175825034
 EMAIL:ventas@transportesocana.com
 ADR;TYPE=WORK:;;Avenida 16 de Julio N° 1479 (El Prado) Edificio San Pablo, Piso 12, Oficina 1203;La Paz;;;Bolivia
-URL:https://www.transportesocana.com
+URL:https://sarai543210.github.io/tarjeta-qr-sarai/
 END:VCARD`;
 
-        // 2. FUNCIÓN PARA GENERAR CÓDIGO QR CON LA URL
+        // 2. FUNCIÓN PARA GENERAR CÓDIGO QR
         document.addEventListener('DOMContentLoaded', (event) => {
             const qrContainer = document.getElementById("qrcode-container");
             if (qrContainer && typeof QRCode !== 'undefined') {
                 new QRCode(qrContainer, {
-                    // Usamos qrData (la URL) para generar el código
                     text: qrData, 
                     width: 180,
                     height: 180,
