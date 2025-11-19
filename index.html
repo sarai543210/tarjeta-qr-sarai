@@ -9,8 +9,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-</head>
+    </head>
 <body>
     <div class="card-container">
         
@@ -80,12 +79,6 @@
                     <i class="fas fa-chevron-right"></i>
                 </a>
             </div>
-
-            <div class="content-block qr-code-section">
-                <h3 class="red-text">Compartir con Código QR</h3>
-                <p class="social-text" style="margin-bottom: 15px;">Escanea para guardar mi tarjeta de contacto.</p>
-                <div id="qrcode-container"></div>
-            </div>
             
         </div> <div class="fixed-buttons-wrapper">
             <a href="javascript:void(0);" onclick="downloadVCard()" class="fixed-button add-contact">
@@ -97,10 +90,7 @@
         </div>
         
     </div> <script>
-        // 1. DEFINE LA URL DE TU TARJETA DIGITAL (¡CORREGIDA CON TU URL DE GITHUB!)
-        const qrData = "https://sarai543210.github.io/tarjeta-qr-sarai/";
-
-        // Datos de la V-Card (Para el botón "Añadir a Contactos")
+        // La URL de la tarjeta se mantiene en vcardData
         const vcardData = `BEGIN:VCARD
 VERSION:3.0
 N:Mamani;Sarai;;;
@@ -113,22 +103,7 @@ ADR;TYPE=WORK:;;Avenida 16 de Julio N° 1479 (El Prado) Edificio San Pablo, Piso
 URL:https://sarai543210.github.io/tarjeta-qr-sarai/
 END:VCARD`;
 
-        // 2. FUNCIÓN PARA GENERAR CÓDIGO QR
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const qrContainer = document.getElementById("qrcode-container");
-            if (qrContainer && typeof QRCode !== 'undefined') {
-                new QRCode(qrContainer, {
-                    text: qrData, 
-                    width: 180,
-                    height: 180,
-                    colorDark: "#0b1d3d",
-                    colorLight: "#ffffff",
-                    correctLevel: QRCode.CorrectLevel.H
-                });
-            }
-        });
-
-        // 3. FUNCIÓN PARA DESCARGAR V-CARD (para el botón flotante)
+        // FUNCIÓN PARA DESCARGAR V-CARD (Mantenida para el botón flotante)
         function downloadVCard() {
             const blob = new Blob([vcardData], { type: 'text/vcard' });
             const url = URL.createObjectURL(blob);
