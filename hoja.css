@@ -670,3 +670,20 @@ body {
     margin-right: 5px; /* MODIFICADO: Margen más pequeño */
     font-size: 1.1em; /* Ajuste: Tamaño de icono */
 }
+/* --- Estilos para el ícono de Instagram en la lista de enlaces --- */
+.social-link.instagram-link .fa-chevron-right {
+    color: #000000; /* Color típico de Instagram */
+}
+/* --- NUEVOS ESTILOS PARA QUE LAS IMÁGENES SE VEAN PEQUEÑAS Y ALINEADAS --- */
+.social-link div img.social-image {
+    width: 28px;       /* Tamaño del ícono */
+    height: 28px;
+    margin-right: 15px; /* Espacio entre el ícono y el texto */
+    object-fit: contain; /* Ajusta la imagen sin distorsionarla */
+}
+
+/* ASEGURA QUE LA FLECHA (>) SIEMPRE SEA NEGRA */
+.social-link i.fa-chevron-right {
+    color: #000000;
+} 
+/* ¡Asegúrate de que este corchete de cierre esté en tu código! */
